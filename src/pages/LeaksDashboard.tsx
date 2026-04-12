@@ -41,11 +41,6 @@ const LeaksDashboard = () => {
   // Original state for change detection
   const [origVictims, setOrigVictims] = useState("");
 
-  if (!role || (role !== "viewer" && role !== "owner")) {
-    navigate("/leaks");
-    return null;
-  }
-
   const loadData = useCallback(async () => {
     setLoading(true);
     const [leaksRes, victimsRes, sidebarRes] = await Promise.all([
