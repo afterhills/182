@@ -1,0 +1,45 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
+
+const LeaksPage = () => {
+  const [code, setCode] = useState("");
+  const [error, setError] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (code === "90") {
+      navigate("/leaks/dashboard");
+    } else {
+      setError(true);
+      setTimeout(() => setError(false), 1500);
+    }
+  };
+
+  return (
+    <div className="scanlines flicker min-h-screen flex flex-col items-center justify-center p-8">
+      <button onClick={() => navigate("/home")} className="absolute top-8 left-8 text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 cursor-pointer">
+        <ArrowLeft size={16} /> BACK
+      </button>
+
+      <form onSubmit={handleSubmit} className="red-box p-8 flex flex-col items-center gap-6 w-full max-w-sm">
+        <p className="text-primary text-lg tracking-wider">{">"} ENTER PASSCODE_</p>
+        <input
+          type="password"
+          value={code}
+          onChange={(e) => setCode(e.target.value)}
+          className="w-full bg-background border border-border text-foreground text-center text-2xl tracking-[0.5em] py-3 px-4 focus:outline-none focus:border-primary transition-colors"
+          autoFocus
+          placeholder="****"
+        />
+        {error && <p className="text-destructive text-sm tracking-wider">ACCESS DENIED</p>}
+        <button type="submit" className="red-box px-8 py-3 text-foreground hover:text-primary tracking-wider transition-colors cursor-pointer">
+          SUBMIT
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default LeaksPage;
