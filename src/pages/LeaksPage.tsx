@@ -10,7 +10,9 @@ const LeaksPage = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (code === "90") {
-      navigate("/leaks/dashboard");
+      navigate("/leaks/dashboard", { state: { role: "viewer" } });
+    } else if (code === "173920") {
+      navigate("/leaks/dashboard", { state: { role: "owner" } });
     } else {
       setError(true);
       setTimeout(() => setError(false), 1500);
