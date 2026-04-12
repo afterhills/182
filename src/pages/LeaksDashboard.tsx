@@ -12,18 +12,17 @@ const LeaksDashboard = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const role = (location.state as { role?: string })?.role;
+  const isOwner = role === "owner";
+
+  const [items, setItems] = useState<LeakItem[]>([]);
+  const [victims, setVictims] = useState("");
+  const [nextId, setNextId] = useState(1);
 
   // Redirect if no valid role
   if (!role || (role !== "viewer" && role !== "owner")) {
     navigate("/leaks");
     return null;
   }
-
-  const isOwner = role === "owner";
-
-  const [items, setItems] = useState<LeakItem[]>([]);
-  const [victims, setVictims] = useState("");
-  const [nextId, setNextId] = useState(1);
 
   const addItem = () => {
     setItems([...items, { id: nextId, image: null, description: "" }]);
