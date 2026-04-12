@@ -61,6 +61,11 @@ const LeaksDashboard = () => {
 
   useEffect(() => { loadData(); }, [loadData]);
 
+  if (!role || (role !== "viewer" && role !== "owner")) {
+    navigate("/leaks");
+    return null;
+  }
+
   const markChanged = () => setHasChanges(true);
 
   const addItem = () => {
