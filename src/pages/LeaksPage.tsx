@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
-import leaksBanner from "@/assets/leaks-banner.png";
 
 const LeaksPage = () => {
   const [code, setCode] = useState("");
