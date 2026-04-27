@@ -1,7 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Crown } from "lucide-react";
 
-const members = ["6SHJI", "CULT", "ALIAS", "F9PO", "ZAID", "Y7JH", "YASI", "S6YJ", "K6SHH"];
+const members: { name: string; count: number }[] = [
+  { name: "6SHJI", count: 4 },
+  { name: "CULT", count: 4 },
+  { name: "ALIAS", count: 0 },
+  { name: "F9PO", count: 3 },
+  { name: "ZAID", count: 1 },
+  { name: "Y7JH", count: 1 },
+  { name: "YASI", count: 3 },
+  { name: "S6YJ", count: 2 },
+  { name: "K6SHH", count: 4 },
+];
 
 const MembersPage = () => {
   const navigate = useNavigate();
@@ -16,9 +26,9 @@ const MembersPage = () => {
         182 MEMBERS
       </h1>
       <div className="flex flex-col gap-3 w-full max-w-md">
-        {members.map((name, i) => (
+        {members.map((m, i) => (
           <div
-            key={name}
+            key={m.name}
             className={`red-box px-6 py-4 text-center text-lg tracking-widest rainbow-glow flex items-center justify-center gap-3 ${i === 0 ? "text-xl font-bold border-2" : ""}`}
             style={i === 0 ? { animationDelay: "0s" } : { animationDelay: `${i * 0.3}s` }}
           >
@@ -32,7 +42,8 @@ const MembersPage = () => {
                 }}
               />
             )}
-            {name}
+            <span>{m.name}</span>
+            <span className="text-primary font-bold ml-2">{m.count}</span>
           </div>
         ))}
       </div>
