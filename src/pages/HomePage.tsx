@@ -10,7 +10,23 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="scanlines flicker min-h-screen flex flex-col items-center justify-center gap-12 p-8">
+    <div className="scanlines flicker min-h-screen flex flex-col items-center justify-center gap-8 p-8">
+      <svg
+        viewBox="0 0 100 100"
+        className="w-32 h-32 md:w-40 md:h-40 text-primary animate-pulse"
+        style={{ filter: "drop-shadow(0 0 12px hsl(0 100% 50% / 0.9)) drop-shadow(0 0 24px hsl(0 100% 50% / 0.5))" }}
+        aria-label="pentagram"
+      >
+        <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" strokeWidth="1.5" />
+        {/* Inverted pentagram: single point down */}
+        <polygon
+          points="50,95 14.7,30.9 90.5,69.1 9.5,69.1 85.3,30.9"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinejoin="miter"
+        />
+      </svg>
       <h1 className="text-primary text-6xl md:text-8xl font-bold tracking-widest"
         style={{ textShadow: "0 0 20px hsl(0 100% 50% / 0.6)" }}>
         182
