@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
-import leaksBanner from "@/assets/leaks-banner.png";
 
 const LeaksPage = () => {
   const [code, setCode] = useState("");
@@ -21,17 +20,10 @@ const LeaksPage = () => {
   };
 
   return (
-    <div className="scanlines flicker min-h-screen flex flex-col items-center p-8 pt-24">
+    <div className="scanlines flicker min-h-screen flex flex-col items-center justify-center p-8">
       <button onClick={() => navigate("/home")} className="absolute top-8 left-8 text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 cursor-pointer z-10">
         <ArrowLeft size={16} /> BACK
       </button>
-
-      <img
-        src={leaksBanner}
-        alt="182 remember your true god banner"
-        className="w-full max-w-4xl mx-auto mb-12 select-none pointer-events-none"
-        style={{ filter: "drop-shadow(0 0 20px hsl(0 100% 50% / 0.4))" }}
-      />
 
       <form onSubmit={handleSubmit} className="red-box p-8 flex flex-col items-center gap-6 w-full max-w-sm">
         <p className="text-primary text-lg tracking-wider">{">"} ENTER PASSCODE_</p>
