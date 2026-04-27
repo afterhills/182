@@ -11,7 +11,7 @@ const LeaksPage = () => {
     e.preventDefault();
     if (code === "90") {
       navigate("/leaks/dashboard", { state: { role: "viewer" } });
-    } else if (code === "173920") {
+    } else if (code === "1822503") {
       navigate("/leaks/dashboard", { state: { role: "owner" } });
     } else {
       setError(true);
