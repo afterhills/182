@@ -26,9 +26,9 @@ const MembersPage = () => {
         182 MEMBERS
       </h1>
       <div className="flex flex-col gap-3 w-full max-w-md">
-        {members.map((name, i) => (
+        {members.map((m, i) => (
           <div
-            key={name}
+            key={m.name}
             className={`red-box px-6 py-4 text-center text-lg tracking-widest rainbow-glow flex items-center justify-center gap-3 ${i === 0 ? "text-xl font-bold border-2" : ""}`}
             style={i === 0 ? { animationDelay: "0s" } : { animationDelay: `${i * 0.3}s` }}
           >
@@ -42,7 +42,8 @@ const MembersPage = () => {
                 }}
               />
             )}
-            {name}
+            <span>{m.name}</span>
+            <span className="text-primary font-bold ml-2">{m.count}</span>
           </div>
         ))}
       </div>
