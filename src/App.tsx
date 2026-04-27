@@ -9,6 +9,8 @@ import MembersPage from "./pages/MembersPage";
 import ToolsPage from "./pages/ToolsPage";
 import LeaksPage from "./pages/LeaksPage";
 import LeaksDashboard from "./pages/LeaksDashboard";
+import ModulesPage from "./pages/ModulesPage";
+import ModulesDashboard from "./pages/ModulesDashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +28,8 @@ const App = () => (
           <Route path="/tools" element={<ToolsPage />} />
           <Route path="/leaks" element={<LeaksPage />} />
           <Route path="/leaks/dashboard" element={<LeaksDashboard />} />
+          <Route path="/modules" element={<ModulesPage />} />
+          <Route path="/modules/dashboard" element={<ModulesDashboard />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

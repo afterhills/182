@@ -4,6 +4,7 @@ const navItems = [
   { label: "Active Members", path: "/members" },
   { label: "Tools", path: "/tools" },
   { label: "Leaks", path: "/leaks" },
+  { label: "Modules", path: "/modules" },
 ];
 
 const HomePage = () => {
