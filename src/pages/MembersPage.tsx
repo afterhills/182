@@ -1,7 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Crown } from "lucide-react";
 
-const members = ["6SHJI", "CULT", "ALIAS", "F9PO", "ZAID", "Y7JH", "YASI", "S6YJ", "K6SHH"];
+const members: { name: string; count: number }[] = [
+  { name: "6SHJI", count: 4 },
+  { name: "CULT", count: 4 },
+  { name: "ALIAS", count: 0 },
+  { name: "F9PO", count: 3 },
+  { name: "ZAID", count: 1 },
+  { name: "Y7JH", count: 1 },
+  { name: "YASI", count: 3 },
+  { name: "S6YJ", count: 2 },
+  { name: "K6SHH", count: 4 },
+];
 
 const MembersPage = () => {
   const navigate = useNavigate();
