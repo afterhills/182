@@ -12,15 +12,15 @@ const HomePage = () => {
   return (
     <div className="scanlines flicker min-h-screen flex flex-col items-center justify-center gap-8 p-8">
       <svg
-        viewBox="0 0 100 100"
+        viewBox="-50 -50 100 100"
         className="w-32 h-32 md:w-40 md:h-40 text-primary animate-pulse"
         style={{ filter: "drop-shadow(0 0 12px hsl(0 100% 50% / 0.9)) drop-shadow(0 0 24px hsl(0 100% 50% / 0.5))" }}
         aria-label="pentagram"
       >
-        <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" strokeWidth="1.5" />
-        {/* Inverted pentagram: single point down */}
+        <circle cx="0" cy="0" r="46" fill="none" stroke="currentColor" strokeWidth="1.5" />
+        {/* Inverted pentagram (point down), centered at origin */}
         <polygon
-          points="50,95 14.7,30.9 90.5,69.1 9.5,69.1 85.3,30.9"
+          points="0,42 -39.94,-13.0 24.69,33.99 -24.69,33.99 39.94,-13.0"
           fill="none"
           stroke="currentColor"
           strokeWidth="1.5"
