@@ -19,14 +19,15 @@ const HomePage = () => {
         aria-label="pentagram sigil"
       >
         <circle cx="0" cy="0" r="50" fill="none" stroke="currentColor" strokeWidth="3" />
-        {/* Inverted pentagram (point down) */}
+        {/* Upright pentagram (point up) */}
         <polygon
-          points="0,47.5 -45.19,-14.7 27.94,38.44 -27.94,38.44 45.19,-14.7"
+          points="0,-47.5 45.19,14.7 -27.94,-38.44 27.94,-38.44 -45.19,14.7"
           fill="none"
           stroke="currentColor"
           strokeWidth="3"
           strokeLinejoin="miter"
         />
+
         {/* 8 crosses + 8 '182' labels alternating around, total 16 positions */}
         {Array.from({ length: 16 }).map((_, i) => {
           const angle = (i * Math.PI * 2) / 16 - Math.PI / 2;
