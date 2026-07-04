@@ -81,7 +81,7 @@ const ToolsPage = () => {
 
       <div className="flex flex-col items-center gap-8 z-10 mt-20">
         <div className="red-box px-10 py-8 text-center">
-          <p className="text-foreground text-xl tracking-wider">DM 6SHJI FOR TOOLS AND REQUIREMENTS</p>
+          <p className="text-foreground text-xl tracking-wider">DM SPJRE FOR TOOLS AND REQUIREMENTS</p>
         </div>
 
         <div className="flex flex-col items-center gap-6">
