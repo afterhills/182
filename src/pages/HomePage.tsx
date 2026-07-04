@@ -14,47 +14,50 @@ const HomePage = () => {
     <div className="scanlines flicker min-h-screen flex flex-col items-center justify-center gap-8 p-8">
       <svg
         viewBox="-100 -100 200 200"
-        className="w-56 h-56 md:w-72 md:h-72 text-primary animate-pulse"
+        className="w-64 h-64 md:w-80 md:h-80 text-primary animate-pulse"
         style={{ filter: "drop-shadow(0 0 12px hsl(0 100% 50% / 0.9)) drop-shadow(0 0 24px hsl(0 100% 50% / 0.5))" }}
         aria-label="pentagram sigil"
       >
-        <circle cx="0" cy="0" r="46" fill="none" stroke="currentColor" strokeWidth="2" />
+        <circle cx="0" cy="0" r="50" fill="none" stroke="currentColor" strokeWidth="3" />
         {/* Inverted pentagram (point down) */}
         <polygon
-          points="0,42 -39.94,-13.0 24.69,33.99 -24.69,33.99 39.94,-13.0"
+          points="0,47.5 -45.19,-14.7 27.94,38.44 -27.94,38.44 45.19,-14.7"
           fill="none"
           stroke="currentColor"
-          strokeWidth="2"
+          strokeWidth="3"
           strokeLinejoin="miter"
         />
-        {/* 8 crosses + '182' labels around the circle */}
-        {Array.from({ length: 8 }).map((_, i) => {
-          const angle = (i * Math.PI * 2) / 8 - Math.PI / 2;
-          const cr = 72;
-          const cx = Math.cos(angle) * cr;
-          const cy = Math.sin(angle) * cr;
-          const tr = 88;
-          const tx = Math.cos(angle + Math.PI / 8) * tr;
-          const ty = Math.sin(angle + Math.PI / 8) * tr;
-          return (
-            <g key={i}>
-              <g transform={`translate(${cx} ${cy}) rotate(${(angle * 180) / Math.PI + 90})`}>
-                <line x1="0" y1="-7" x2="0" y2="7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                <line x1="-3.5" y1="-2" x2="3.5" y2="-2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        {/* 8 crosses + 8 '182' labels alternating around, total 16 positions */}
+        {Array.from({ length: 16 }).map((_, i) => {
+          const angle = (i * Math.PI * 2) / 16 - Math.PI / 2;
+          const isCross = i % 2 === 0;
+          const r = isCross ? 72 : 78;
+          const x = Math.cos(angle) * r;
+          const y = Math.sin(angle) * r;
+          const rot = (angle * 180) / Math.PI + 90;
+          if (isCross) {
+            return (
+              <g key={i} transform={`translate(${x} ${y}) rotate(${rot})`}>
+                <line x1="0" y1="-11" x2="0" y2="11" stroke="currentColor" strokeWidth="2.5" strokeLinecap="butt" />
+                <line x1="-5" y1="-3" x2="5" y2="-3" stroke="currentColor" strokeWidth="2.5" strokeLinecap="butt" />
               </g>
-              <text
-                x={tx}
-                y={ty}
-                fill="currentColor"
-                fontSize="7"
-                fontFamily="monospace"
-                textAnchor="middle"
-                dominantBaseline="middle"
-                transform={`rotate(${(angle * 180) / Math.PI + 90 + 22.5} ${tx} ${ty})`}
-              >
-                182
-              </text>
-            </g>
+            );
+          }
+          return (
+            <text
+              key={i}
+              x={x}
+              y={y}
+              fill="currentColor"
+              fontSize="9"
+              fontWeight="bold"
+              fontFamily="Georgia, serif"
+              textAnchor="middle"
+              dominantBaseline="middle"
+              transform={`rotate(${rot} ${x} ${y})`}
+            >
+              182
+            </text>
           );
         })}
       </svg>
