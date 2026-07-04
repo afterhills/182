@@ -11,7 +11,7 @@ const ModulesPage = () => {
     e.preventDefault();
     if (code === "90") {
       navigate("/modules/dashboard", { state: { role: "viewer" } });
-    } else if (code === "1822503") {
+    } else if (code === "19802") {
       navigate("/modules/dashboard", { state: { role: "owner" } });
     } else {
       setError(true);
