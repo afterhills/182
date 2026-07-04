@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Crown } from "lucide-react";
 
 const members: { name: string; count: number }[] = [
-  { name: "6SHJI", count: 4 },
+  { name: "SPJRE", count: 4 },
   { name: "CULT", count: 4 },
   { name: "ALIAS", count: 0 },
   { name: "F9PO", count: 3 },
